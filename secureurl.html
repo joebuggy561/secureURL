@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- Html -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureUrl</title>
+</head>
+<body>
+    <div class="urls">
+        <input type="text" class="urlinput" id="myInput" placeholder="Enter your Url here">
+        <button class="btn" id="btnId" onclick="">Cick Me</button>
+        <div class="output" id="output"></div>
+    </div>
+</body>
+
+<script>
+
+    // Javascript
+    // Get all your elements
+    let inputUrl = document.getElementById('myInput')
+    let compareBtn = document.getElementById('btnId')
+    let outPut = document.getElementById('output')
+   
+    // write a function that test the str against the url
+    function clickBtn(){
+        const myInput = inputUrl.value
+        console.log(myInput)
+        const secureUrlRegex =/(https:\/\/www\.|http:\/\/www\.|https:\/\/|http:\/\/)?[a-zA-Z]{2,}(\.[a-zA-Z]{2,})(\.[a-zA-Z]{2,})?\/[a-zA-Z0-9]{2,}|((https:\/\/www\.|http:\/\/www\.|https:\/\/|http:\/\/)?[a-zA-Z]{2,}(\.[a-zA-Z]{2,})(\.[a-zA-Z]{2,})?)|(https:\/\/www\.|http:\/\/www\.|https:\/\/|http:\/\/)?[a-zA-Z0-9]{2,}\.[a-zA-Z0-9]{2,}\.[a-zA-Z0-9]{2,}(\.[a-zA-Z0-9]{2,})?/g;
+        urlSecure = secureUrlRegex.test(myInput)
+        console.log(urlSecure)
+        if (myInput === ''){
+            alert('Enter a url')
+        }else if (urlSecure === true){
+            outPut.innerHTML =  'This is a valid url'
+        }else if(urlSecure === false){
+            outPut.innerHTML = 'This ia an invalid url'
+        }else{
+            output.innerHTML = ''
+        }
+        
+}
+// add eventlistener
+compareBtn.addEventListener('click', clickBtn);
+
+
+
+</script>
+</html>
